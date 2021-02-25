@@ -1,7 +1,19 @@
-const startBtn = $('#timerStart')
+const startBtn = $('#timerStart');
+const choiceBtn = $('#guessBtn');
+const timerEl = $('#countdown'); 
+const otText = $('timer-text')
 
-startBtn.on('click', () => {
-    console.log('hellow')
+//start timer
+startBtn.click( function() {
+    let counter = 60;
+    setInterval(function() {
+        counter--;
+        if(counter >= 0) {
+        timerEl.text(counter)
+        }
+        if(counter === 0) {
+        otText.text('game over');
+        clearInterval(counter);
+        }
+    }, 10);
 })
-
-console.log('hello')
