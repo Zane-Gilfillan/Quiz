@@ -13,11 +13,18 @@ setInterval(blink_text, 1000);
 
 //start timer
 startBtn.click( function() {
-    
+        
     $('.timer-element').text('time left: ').append(timerEl);
+    
     let counter = 60;
+    
     setInterval(function() {
         counter--;
+
+        if(counter < 59.9) {
+            otText.fadeOut(5000000)
+            otText.fadeIn(50000000)
+        }
         if(counter >= 0) {
         timerEl.text(counter)
         }
@@ -32,5 +39,8 @@ startBtn.click( function() {
             clearInterval(counter);
         }
     }, 1000);
+
+    
 })
+
 
