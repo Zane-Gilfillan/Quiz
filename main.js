@@ -2,6 +2,17 @@ const startBtn = $('#timerStart');
 const choiceBtn = $('#guessBtn');
 const timerEl = $('#countdown'); 
 const otText = $('#timer-text')
+const questionEl = $('#question-text')
+const answerEl = $('#choice-btn')
+const questions = [
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false}
+        ]
+    }
+]
 
 //start blink
 
@@ -52,6 +63,8 @@ startBtn.click( () => {
 
 function startQuiz() {
     console.log('this is working!')
+
+    nextQuestion()
 }
 
 
