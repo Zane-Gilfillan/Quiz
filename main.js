@@ -22,8 +22,8 @@ startBtn.click( function() {
         counter--;
 
         if(counter < 59.9) {
-            otText.fadeOut(5000000)
-            otText.fadeIn(50000000)
+            otText.fadeOut(5000000000)
+            otText.fadeIn(50000000000)
         }
         if(counter >= 0) {
         timerEl.text(counter)
@@ -40,7 +40,25 @@ startBtn.click( function() {
         }
     }, 1000);
 
-    
+    $('.timer-start').addClass('hide')
+    $('.choice-btn').removeClass('hide')
 })
 
+startBtn.click( () => {
+    startQuiz()
+})
 
+//begin actual game
+
+function startQuiz() {
+    console.log('this is working!')
+}
+
+
+function nextQuestion() {
+
+}
+
+function correctAnswer() {
+    
+}
