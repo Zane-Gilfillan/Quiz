@@ -94,7 +94,9 @@ const questions = [
         question:'i am eating a piece of bread',
         answers: [
             {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false}
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
         ]
     }
 ]
