@@ -1,4 +1,6 @@
 const startBtn = $('#timerStart');
+const nextBtn = $('#nextQuestion');
+const mainContainerEl = $('.card')
 const choiceBtn = $('#guessBtn');
 const timerEl = $('#countdown'); 
 const otText = $('#timer-text')
@@ -43,8 +45,7 @@ startBtn.click( function() {
         }
     }, 1000);
 
-    $('.timer-start').addClass('hide')
-    $('.choice-btn').removeClass('hide')
+    
 })
 
 startBtn.click( () => {
@@ -54,13 +55,11 @@ startBtn.click( () => {
 //begin actual game
 
 function startQuiz() {
-    console.log('this is working!')
     shuffQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex - 0
-    showQuestion()
-    selectAnswer()
-    nextQuestion()
-
+    currentQuestionIndex = 0
+    $('.start-btn').addClass('hide')
+    $('.choice-btn').removeClass('hide')
+    $('.next-btn').removeClass('hide')
 }
 
 
@@ -69,11 +68,7 @@ function nextQuestion() {
 }
 
 function showQuestion(question) {
-    questionEl.text('this is my first question')
-    $('.answer-one').text('blah blah')
-    $('.answer-two').text('blah blah blah')
-    $('.answer-three').text('blah blah blah blah')
-    $('.answer-four').text('blah blah blah blah blah')
+    
 }
 
 
@@ -98,7 +93,97 @@ const questions = [
             {text: 'there is a medium way', correct: false},
             {text: 'there is a small way', correct: false}
         ]
-    }
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
 ]
 
 
