@@ -68,131 +68,13 @@ function startQuiz() {
     startBtn.addClass('hide')
     nextBtn.removeClass('hide')
     questionEl.removeClass('hide')
+    nextQuestion()
 
 }
-
 
 function nextQuestion() {
+    resetState()
     showQuestion(shuffQuestions[currentQuestionIndex])
 }
-
-function showQuestion(question) {
-    
-}
-
-
-
-function selectAnswer() {
-    answerBtn.click( function() {
-        console.log('hello')
-    })
-
-}
-
-function correctAnswer() {
-    
-}
-
-const questions = [
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-]
 
 
