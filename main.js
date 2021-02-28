@@ -1,12 +1,18 @@
+
+//game variables
 const startBtn = $('#timerStart');
 const nextBtn = $('#nextQuestion');
-const mainContainerEl = $('.card')
-const choiceBtn = $('#guessBtn');
-const timerEl = $('#countdown'); 
-const otText = $('#timer-text')
-const questionEl = $('.question-text')
-const answerBtn = $('.choice-btn')
+const mainContainerEl = $('.card');
+const questionEl = $('.question-container');
+const choiceBtn = $('.choice-btn');
 let shuffQuestions, currentQuestionIndex
+
+//timer variables
+const timerEl = $('#countdown'); 
+const otText = $('#timer-text');
+
+
+
 
 //start blink
 function blink_text() {
@@ -15,7 +21,7 @@ function blink_text() {
 }
 setInterval(blink_text, 1000);
 
-//start timer
+//start timer and game
 startBtn.click( function() {
         
     $('.timer-element').text('time left: ').append(timerEl);
@@ -45,21 +51,24 @@ startBtn.click( function() {
         }
     }, 1000);
 
-    
-})
-
-startBtn.click( () => {
     startQuiz()
 })
 
-//begin actual game
+//this button will move us to the next question after we make a slection
+nextBtn.click( () => {
+    console.log("next question check")
+    currentQuestionIndex++
+    nextQuestion()
+})
 
+//begin actual game
 function startQuiz() {
     shuffQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
-    $('.start-btn').addClass('hide')
-    $('.choice-btn').removeClass('hide')
-    $('.next-btn').removeClass('hide')
+    startBtn.addClass('hide')
+    nextBtn.removeClass('hide')
+    questionEl.removeClass('hide')
+
 }
 
 
