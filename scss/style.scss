@@ -26,7 +26,11 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+}
 
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .hide {
@@ -45,7 +49,7 @@ body {
         color: rgb(226, 226, 226);
         font-size: 3.5em;
         position: relative;
-        bottom: 8rem;
+        bottom: 12rem;
     }
 
     .card {
@@ -56,6 +60,8 @@ body {
         padding: 2rem;
         text-align: center;
         border: .2rem solid #fff;
+        position: relative;
+        bottom: 12rem;
 
         .intro-text {
             font-family: '04b';

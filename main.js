@@ -2,8 +2,8 @@
 //game variables
 const startBtn = $('#timerStart');
 const nextBtn = $('#nextQuestion');
-const mainContainerEl = $('.card');
 const questionEl = $('.question-container');
+const questionText = $('.question')
 const choiceBtn = $('.choice-btn');
 let shuffQuestions, currentQuestionIndex
 
@@ -77,4 +77,90 @@ function nextQuestion() {
     showQuestion(shuffQuestions[currentQuestionIndex])
 }
 
+function showQuestion(question) {
+    questionEl.innerText = question.question
+    question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.innerText = answer.text
+        button.classList.add('btn')
+        if(answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener('click', selectAnswer)
+        choiceBtn.append(button)
+    })
+}
+
+function selectAnswer(e) {
+    const selectedButon = e.target
+    const correct = selectedButon.dataset.correct
+    setStatusClass(document.body, correct)
+    Array.from(choiceBtn.children()).forEach(button => {
+        setStatusClass(button, button.dataset.correct)
+    })
+    if(shuffQuestions.length > currentQuestionIndex + 1) {
+        nextBtn.removeClass('hide')
+    } else {
+        startBtn.innerText = 'Restart'
+        startBtn.removeClass('hide')
+    }
+    nextBtn.removeClass('hide')
+}
+
+function setStatusClass(element, correct) {
+    clearStatusClass(element)
+    if(correct) {
+        element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
+    }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
+}
+
+function resetState() {
+    clearStatusClass(document.body)
+    nextBtn.addClass('hide')
+    while (choiceBtn.firstChild) {
+        choiceBtn.removeChild
+        (choiceBtn.firstChild)
+    }
+}
+
+
+
+const questions = [
+    {
+        question: 'what is 2 + 2??',
+        answers: [
+            {text: 'i have no idea', correct: true},
+            {text: 'it could be anything', correct: false},
+            {text: 'ummmmmmmmmm, what?', correct: false},
+            {text: 'yoyoyoyoyoyo', correct: false}
+        ]
+    },
+
+    {
+        question: 'what is 4 + 4??',
+        answers: [
+            {text: 'yeah once again, no idea', correct: true},
+            {text: 'egg time', correct: false},
+            {text: 'egg time', correct: false},
+            {text: 'egg time', correct: false},
+        ]
+    },
+
+    {
+        question: 'what is up my dude',
+        answers: [
+            {text: 'lol', correct: true},
+            {text: 'omg', correct: false},
+            {text: 'jaja', correct: false},
+            {text: 'omfgggggg', correct: false},
+        ]
+    },
+]
 

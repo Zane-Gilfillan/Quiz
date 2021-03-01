@@ -16,21 +16,19 @@
             <h1 class="intro">Good luck have fun</h1>
             <h3 id="timer-text" class="timer-element">press start <span id="countdown"></span></h3>
         </div>
-        <div class="card">
-            <div class="question-container hide">
-                <div id="question"></div>
-                <div class="choice-btn">
-                    <button id="guessBtn" class="btn"></button>
-                    <button id="guessBtn" class="btn"></button>
-                    <button id="guessBtn" class="btn"></button>
-                    <button id="guessBtn" class="btn"></button>
-                </div>
+        
+        <div id="question-container" class="hide">
+            <div id="question" class="#">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
             </div>
-            
-            <div class="timer-start">
-                <button id="timerStart" class="start-btn">start</button>
-                <button id="nextQuestion" class="next-btn hide">next</button>
-            </div>
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn btn">start</button>
+            <button id="next-btn" class="nxt-btn btn hide">next</button>
         </div>
     </div>
     
