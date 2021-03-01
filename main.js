@@ -1,18 +1,11 @@
-
-//game variables
 const startBtn = $('#start-btn');
-const nextBtn = $('#next-btn');
-const questionContainer = $('#question-container');
-const questionText = $('#question')
-const choiceBtn = $('#answer-buttons');
-let shuffQuestions, currentQuestionIndex
-
-//timer variables
+const choiceBtn = $('#guessBtn');
 const timerEl = $('#countdown'); 
-const otText = $('#timer-text');
-
-
-
+const otText = $('#timer-text')
+const questionContainerElement = $('#question-container')
+const questionEl = $('.question-text')
+const answerBtn = $('.choice-btn')
+let shuffQuestions, currentQuestionIndex
 
 //start blink
 function blink_text() {
@@ -21,7 +14,7 @@ function blink_text() {
 }
 setInterval(blink_text, 1000);
 
-//start timer and game
+//start timer
 startBtn.click( function() {
         
     $('.timer-element').text('time left: ').append(timerEl);
@@ -51,93 +44,152 @@ startBtn.click( function() {
         }
     }, 1000);
 
+    $('.timer-start').addClass('hide')
+    $('.choice-btn').removeClass('hide')
+})
+
+startBtn.click( () => {
     startQuiz()
 })
 
-//this button will move us to the next question after we make a slection
-nextBtn.click( () => {
-    currentQuestionIndex++
-    nextQuestion()
-})
-
 //begin actual game
+
 function startQuiz() {
-    startBtn.addClass('hide')
-    questionContainer.removeClass('hide')
+    console.log('this is working!')
     shuffQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex = 0
-    nextQuestion()
+    currentQuestionIndex - 0
+    questionContainerElement.removeClass('hide')
+    startBtn.addClass('hide')
+    
+
 }
 
+
 function nextQuestion() {
-    resetState()
     showQuestion(shuffQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
-    questionText.text(question.question)
-    question.answers.forEach(answer => {
-        const button = document.createElement('button')
-        button.text(answer.text)
-        button.addClass('btn')
-        if(answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.click(selectAnswer)
-        answerBtnEl.appendChild(button)
+    questionEl.text('this is my first question')
+    $('.answer-one').text('blah blah')
+    $('.answer-two').text('blah blah blah')
+    $('.answer-three').text('blah blah blah blah')
+    $('.answer-four').text('blah blah blah blah blah')
+}
+
+
+
+function selectAnswer() {
+    answerBtn.click( function() {
+        console.log('hello')
     })
-}
-
-function selectAnswer (e) {
 
 }
 
-function setClass() {
-
-}
-
-function clearClass(e) {
-
-}
-
-resetQuestion() {
+function correctAnswer() {
     
 }
 
-
-
-
-
-
-
 const questions = [
     {
-        question: 'what is 2 + 2??',
+        question:'i am eating a piece of bread',
         answers: [
-            {text: '4', correct: true},
-            {text: '22', correct: false},
-            {text: '22', correct: false},
-            {text: '22', correct: false},
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
         ]
     },
 
     {
-        question: 'what is 4 + 4??',
+        question:'i am eating a piece of bread',
         answers: [
-            {text: '8', correct: true},
-            {text: '22', correct: false},
-            {text: '22', correct: false},
-            {text: '22', correct: false},
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
         ]
     },
 
     {
-        question: 'what is 6 + 6??',
+        question:'i am eating a piece of bread',
         answers: [
-            {text: '12', correct: true},
-            {text: '22', correct: false},
-            {text: '22', correct: false},
-            {text: '22', correct: false},
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
+        ]
+    },
+
+    {
+        question:'i am eating a piece of bread',
+        answers: [
+            {text: 'of course i am', correct: true},
+            {text: 'there is no way', correct: false},
+            {text: 'there is a medium way', correct: false},
+            {text: 'there is a small way', correct: false}
         ]
     },
 ]
+
+
