@@ -52,7 +52,7 @@ startBtn.click( function() {
 
             endGame()
         }
-    }, 1000);
+    }, 10);
 
     $('.timer-start').addClass('hide')
     $('.choice-btn').removeClass('hide')
@@ -65,7 +65,6 @@ startBtn.click( () => {
 //begin actual game
 
 function startQuiz() {
-    console.log('quiz has started')
     questionContainerElement.removeClass('hide')
     startBtn.addClass('hide')
     showQuestion()
@@ -80,21 +79,27 @@ function showQuestion() {
     dEl.text('1,000,000')
 
     if(dEl.click( () => [
-        questionTwo(),
         finalScore++,
+        questionTwo(),
+        
     ]));
     if(aEl.click( () => [
-        questionTwo(),
         wrongAnswers++,
+        questionTwo(),
+        
     ]));
     if(bEl.click( () => [
-        questionTwo(),
         wrongAnswers++,
+        questionTwo(),
+        
     ]));
     if(cEl.click( () => [
-        questionTwo(),
         wrongAnswers++,
+        questionTwo(),
+        
     ]));
+    console.log(finalScore)
+    
 }
 
 function questionTwo() {
@@ -105,21 +110,28 @@ function questionTwo() {
     dEl.text('5%')
 
     if(bEl.click( () => [
-        questionThree(),
         finalScore++,
+        questionThree(),
+        
     ]));
     if(aEl.click( () => [
-        questionThree(),
         wrongAnswers++,
+        questionThree(),
+        
     ]));
     if(cEl.click( () => [
-        questionThree(),
         wrongAnswers++,
+        questionThree(),
+        
     ]));
     if(dEl.click( () => [
-        questionThree(),
         wrongAnswers++,
+        questionThree(),
+        
     ]));
+
+    console.log(finalScore)
+    
 }
 
 function questionThree() {
@@ -130,21 +142,28 @@ function questionThree() {
     dEl.text('belgium')
 
     if(cEl.click( () => [
-        questionFour(),
         finalScore++,
+        questionFour(),
+        
     ]));
     if(aEl.click( () => [
-        questionFour(),
         wrongAnswers++,
+        questionFour(),
+        
     ]));
     if(bEl.click( () => [
-        questionFour(),
         wrongAnswers++,
+        questionFour(),
+        
     ]));
     if(dEl.click( () => [
-        questionFour(),
         wrongAnswers++,
+        questionFour(),
+        
     ]));
+
+    console.log(finalScore)
+    
 }
 
 function questionFour() {
@@ -155,21 +174,28 @@ function questionFour() {
     dEl.text('nigeria')
 
     if(aEl.click( () => [
+        finalScore++,
         questionFive(),
-        finalScore++
+        
     ]));
     if(bEl.click( () => {
+        wrongAnswers++,
         questionFive()
-        wrongAnswers++
+        
     }));
     if(cEl.click( () => {
+        wrongAnswers++,
         questionFive()
-        wrongAnswers++
+        
     }));
     if(dEl.click( () => {
+        wrongAnswers++,
         questionFive()
-        wrongAnswers++
+        
     }));
+
+    console.log(finalScore)
+    
 }
 
 function questionFive() {
@@ -180,21 +206,28 @@ function questionFive() {
     dEl.text('wall')
 
     if(aEl.click( () => [
+        finalScore++,
         questionSix(),
-        finalScore++
+        
     ]));
     if(bEl.click( () => [
+        wrongAnswers++,
         questionSix(),
-        wrongAnswers++
+        
     ]));
     if(cEl.click( () => [
+        wrongAnswers++,
         questionSix(),
-        wrongAnswers++
+        
     ]));
     if(dEl.click( () => [
+        wrongAnswers++,
         questionSix(),
-        wrongAnswers++
+        
     ]));
+
+    console.log(finalScore)
+    
 }
 
 function questionSix() {
@@ -205,21 +238,27 @@ function questionSix() {
     dEl.text('22')
 
     if(cEl.click( () => [
+        finalScore++,
         endGame(),
-        finalScore++
+        
     ]));
     if(aEl.click( () => [
+        wrongAnswers++,
         endGame(),
-        wrongAnswers++
+        
     ]));
     if(bEl.click( () => [
+        wrongAnswers++,
         endGame(),
-        wrongAnswers++
+        
     ]));
     if(dEl.click( () => [
+        wrongAnswers++,
         endGame(),
-        wrongAnswers++
     ]));
+
+    console.log(finalScore)
+    
 }
 
 
@@ -238,7 +277,7 @@ function endGame() {
     cEl.text('')
     dEl.text('')
     $('.final-showing').removeClass('hide')
-    $('#final-score').text('correct answers: ').append(finalScore);
-    $('#final-wrong').text('wrong answers: ').append(wrongAnswers);
+    $('#final-score').text('highscore: ').append(finalScore);
+    // $('#final-wrong').text('wrong answers: ').append(wrongAnswers);
 }
 
