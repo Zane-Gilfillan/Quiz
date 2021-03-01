@@ -88,6 +88,22 @@ function showQuestion(question) {
     })
 }
 
+function selectAnswer (e) {
+
+}
+
+function setClass() {
+
+}
+
+function clearClass(e) {
+
+}
+
+resetQuestion() {
+    
+}
+
 
 
 
