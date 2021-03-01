@@ -1,11 +1,19 @@
+//main selectors
 const startBtn = $('#start-btn');
 const choiceBtn = $('#guessBtn');
 const timerEl = $('#countdown'); 
 const otText = $('#timer-text')
 const questionContainerElement = $('#question-container')
 const questionEl = $('.question-text')
-const answerBtn = $('.choice-btn')
-let shuffQuestions, currentQuestionIndex
+const answerBtn = $('#answer-butons')
+//button selectors
+const aEl = $('#choiceA')
+const bEl = $('#choiceB')
+const cEl = $('#choiceC')
+const dEl = $('#choiceD')
+
+let finalScore = 0;
+let wrongAnswers = 0;
 
 //start blink
 function blink_text() {
@@ -41,6 +49,8 @@ startBtn.click( function() {
             $('.intro').text('game over')
 
             clearInterval(counter);
+
+            endGame()
         }
     }, 1000);
 
@@ -55,141 +65,180 @@ startBtn.click( () => {
 //begin actual game
 
 function startQuiz() {
-    console.log('this is working!')
-    shuffQuestions = questions.sort(() => Math.random() - .5)
-    currentQuestionIndex - 0
+    console.log('quiz has started')
     questionContainerElement.removeClass('hide')
     startBtn.addClass('hide')
-    
+    showQuestion()
 
 }
 
+function showQuestion() {
+    questionEl.text('How many times can the earth fit into the sun')
+    aEl.text('1,000')
+    bEl.text('10,000')
+    cEl.text('100,000')
+    dEl.text('1,000,000')
 
-function nextQuestion() {
-    showQuestion(shuffQuestions[currentQuestionIndex])
+    if(dEl.click( () => [
+        questionTwo(),
+        finalScore++,
+    ]));
+    if(aEl.click( () => [
+        questionTwo(),
+        wrongAnswers++,
+    ]));
+    if(bEl.click( () => [
+        questionTwo(),
+        wrongAnswers++,
+    ]));
+    if(cEl.click( () => [
+        questionTwo(),
+        wrongAnswers++,
+    ]));
 }
 
-function showQuestion(question) {
-    questionEl.text('this is my first question')
-    $('.answer-one').text('blah blah')
-    $('.answer-two').text('blah blah blah')
-    $('.answer-three').text('blah blah blah blah')
-    $('.answer-four').text('blah blah blah blah blah')
+function questionTwo() {
+    questionEl.text('How many of the speeches in Shakespeare’s plays are recited by women?')
+    aEl.text('33%%')
+    bEl.text('17%')
+    cEl.text('50%')
+    dEl.text('5%')
+
+    if(bEl.click( () => [
+        questionThree(),
+        finalScore++,
+    ]));
+    if(aEl.click( () => [
+        questionThree(),
+        wrongAnswers++,
+    ]));
+    if(cEl.click( () => [
+        questionThree(),
+        wrongAnswers++,
+    ]));
+    if(dEl.click( () => [
+        questionThree(),
+        wrongAnswers++,
+    ]));
 }
 
+function questionThree() {
+    questionEl.text('Which contry consumes the most chocolate per capita?')
+    aEl.text('america')
+    bEl.text('germany')
+    cEl.text('switzerland')
+    dEl.text('belgium')
 
-
-function selectAnswer() {
-    answerBtn.click( function() {
-        console.log('hello')
-    })
-
+    if(cEl.click( () => [
+        questionFour(),
+        finalScore++,
+    ]));
+    if(aEl.click( () => [
+        questionFour(),
+        wrongAnswers++,
+    ]));
+    if(bEl.click( () => [
+        questionFour(),
+        wrongAnswers++,
+    ]));
+    if(dEl.click( () => [
+        questionFour(),
+        wrongAnswers++,
+    ]));
 }
+
+function questionFour() {
+    questionEl.text('which country has the oldest continuously used national flag?')
+    aEl.text('denmark')
+    bEl.text('mexico')
+    cEl.text('cambodia')
+    dEl.text('nigeria')
+
+    if(aEl.click( () => [
+        questionFive(),
+        finalScore++
+    ]));
+    if(bEl.click( () => {
+        questionFive()
+        wrongAnswers++
+    }));
+    if(cEl.click( () => {
+        questionFive()
+        wrongAnswers++
+    }));
+    if(dEl.click( () => {
+        questionFive()
+        wrongAnswers++
+    }));
+}
+
+function questionFive() {
+    questionEl.text('What is the space between windows called?')
+    aEl.text('interfenestration')
+    bEl.text('clippings')
+    cEl.text('the space bewteen the window')
+    dEl.text('wall')
+
+    if(aEl.click( () => [
+        questionSix(),
+        finalScore++
+    ]));
+    if(bEl.click( () => [
+        questionSix(),
+        wrongAnswers++
+    ]));
+    if(cEl.click( () => [
+        questionSix(),
+        wrongAnswers++
+    ]));
+    if(dEl.click( () => [
+        questionSix(),
+        wrongAnswers++
+    ]));
+}
+
+function questionSix() {
+    questionEl.text('how many languages are written from right to left?')
+    aEl.text('5')
+    bEl.text('37')
+    cEl.text('12')
+    dEl.text('22')
+
+    if(cEl.click( () => [
+        endGame(),
+        finalScore++
+    ]));
+    if(aEl.click( () => [
+        endGame(),
+        wrongAnswers++
+    ]));
+    if(bEl.click( () => [
+        endGame(),
+        wrongAnswers++
+    ]));
+    if(dEl.click( () => [
+        endGame(),
+        wrongAnswers++
+    ]));
+}
+
 
 function correctAnswer() {
-    
+    questionEl.text('nice job!')
 }
 
-const questions = [
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
+function wrongAnswer() {
+    questionEl.text('oh no, so close!')
+}
 
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-
-    {
-        question:'i am eating a piece of bread',
-        answers: [
-            {text: 'of course i am', correct: true},
-            {text: 'there is no way', correct: false},
-            {text: 'there is a medium way', correct: false},
-            {text: 'there is a small way', correct: false}
-        ]
-    },
-]
-
+function endGame() {
+    questionEl.text('you did great!')
+    aEl.text('')
+    bEl.text('')
+    cEl.text('')
+    dEl.text('')
+    $('.final-showing').removeClass('hide')
+    $('#final-score').text('correct answers: ').append(finalScore);
+    $('#final-wrong').text('wrong answers: ').append(wrongAnswers);
+}
 
