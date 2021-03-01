@@ -11,6 +11,13 @@ const aEl = $('#choiceA')
 const bEl = $('#choiceB')
 const cEl = $('#choiceC')
 const dEl = $('#choiceD')
+const subEl = $('.submit-btn')
+const inputEl = $('#player-input')
+//leaderboard variables
+let firstEl = $('#first')
+let secondEl = $('#second')
+let thirdEl = $('#third')
+let fourthEl = $('#fourth')
 
 let finalScore = 0;
 let wrongAnswers = 0;
@@ -22,7 +29,7 @@ function blink_text() {
 setInterval(blink_text, 1000);
 
 //start timer
-startBtn.click( function() {
+startBtn.click( () => {
         
     $('.timer-element').text('time left: ').append(timerEl);
     
@@ -68,9 +75,10 @@ function startQuiz() {
     questionContainerElement.removeClass('hide')
     startBtn.addClass('hide')
     showQuestion()
-
 }
 
+//---------------------------------------------------Question One
+//brings up first question and then will push to second question when choice is made
 function showQuestion() {
     questionEl.text('How many times can the earth fit into the sun')
     aEl.text('1,000')
@@ -101,6 +109,9 @@ function showQuestion() {
     console.log(finalScore)
     
 }
+
+//-----------------------------------------------Question Two
+//each button will just push to the next question
 
 function questionTwo() {
     questionEl.text('How many of the speeches in Shakespeare’s plays are recited by women?')
@@ -134,6 +145,7 @@ function questionTwo() {
     
 }
 
+//--------------------------------------------------Question Three
 function questionThree() {
     questionEl.text('Which contry consumes the most chocolate per capita?')
     aEl.text('america')
@@ -166,6 +178,7 @@ function questionThree() {
     
 }
 
+//--------------------------------------Question Four
 function questionFour() {
     questionEl.text('which country has the oldest continuously used national flag?')
     aEl.text('denmark')
@@ -198,6 +211,8 @@ function questionFour() {
     
 }
 
+
+//--------------------------------------------------Question Five 
 function questionFive() {
     questionEl.text('What is the space between windows called?')
     aEl.text('interfenestration')
@@ -230,6 +245,7 @@ function questionFive() {
     
 }
 
+//----------------------------------------------Question Six
 function questionSix() {
     questionEl.text('how many languages are written from right to left?')
     aEl.text('5')
@@ -261,15 +277,7 @@ function questionSix() {
     
 }
 
-
-function correctAnswer() {
-    questionEl.text('nice job!')
-}
-
-function wrongAnswer() {
-    questionEl.text('oh no, so close!')
-}
-
+//End Game Function
 function endGame() {
     questionEl.text('you did great!')
     counter = 0
@@ -281,4 +289,25 @@ function endGame() {
     $('#final-score').text('highscore: ').append(finalScore);
     // $('#final-wrong').text('wrong answers: ').append(wrongAnswers);
 }
+
+
+//These are the last two functions i need to set up for local storage to work and keep an up to date leader board
+function setScoreBoard() {
+
+
+}
+
+
+subEl.click( () => {
+    let nameEl = document.getElementById('user-name').value
+
+    firstEl.text(nameEl + '---' + finalScore)
+
+    localStorage.setItem('user', nameEl)
+    localStorage.setItem('score', finalScore)
+    localStorage.getItem('user', nameEl)
+    localStorage.getItem('score', finalScore)
+
+    setScoreBoard()
+})
 
