@@ -14,7 +14,6 @@ const dEl = $('#choiceD')
 
 let finalScore = 0;
 let wrongAnswers = 0;
-
 //start blink
 function blink_text() {
     otText.fadeOut(500);
@@ -52,7 +51,8 @@ startBtn.click( function() {
 
             endGame()
         }
-    }, 10);
+
+    }, 1000);
 
     $('.timer-start').addClass('hide')
     $('.choice-btn').removeClass('hide')
@@ -272,6 +272,7 @@ function wrongAnswer() {
 
 function endGame() {
     questionEl.text('you did great!')
+    counter = 0
     aEl.text('')
     bEl.text('')
     cEl.text('')
