@@ -67,8 +67,6 @@ function startQuiz() {
     shuffQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     nextQuestion()
-
-
 }
 
 function nextQuestion() {
@@ -76,6 +74,19 @@ function nextQuestion() {
     showQuestion(shuffQuestions[currentQuestionIndex])
 }
 
+function showQuestion(question) {
+    questionText.text(question.question)
+    question.answers.forEach(answer => {
+        const button = document.createElement('button')
+        button.text(answer.text)
+        button.addClass('btn')
+        if(answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.click(selectAnswer)
+        answerBtnEl.appendChild(button)
+    })
+}
 
 
 
