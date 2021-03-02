@@ -107,7 +107,7 @@ function showQuestion() {
         questionTwo(),
         
     ]));
-    console.log(finalScore)
+    
     
 }
 
@@ -142,7 +142,7 @@ function questionTwo() {
         
     ]));
 
-    console.log(finalScore)
+    
     
 }
 
@@ -175,7 +175,7 @@ function questionThree() {
         
     ]));
 
-    console.log(finalScore)
+    
     
 }
 
@@ -208,7 +208,7 @@ function questionFour() {
         
     }));
 
-    console.log(finalScore)
+    
     
 }
 
@@ -242,7 +242,7 @@ function questionFive() {
         
     ]));
 
-    console.log(finalScore)
+    
     
 }
 
@@ -274,8 +274,6 @@ function questionSix() {
         endGame(),
     ]));
 
-    console.log(finalScore)
-    
 }
 
 //End Game Function
@@ -289,27 +287,26 @@ function endGame() {
     $('.final-showing').removeClass('hide')
     questionContainerElement.addClass('hide')
     $('#final-score').text('highscore: ').append(finalScore);
-    // $('#final-wrong').text('wrong answers: ').append(wrongAnswers);
+    $('.timer-element').text('you did great!')
+    
 }
 
 
 //These are the last two functions i need to set up for local storage to work and keep an up to date leader board
 function setScoreBoard() {
-
+    
+    
+    
 
 }
 
 
 subEl.click( () => {
     let nameEl = document.getElementById('user-name').value
-
     firstEl.text(nameEl + '---' + finalScore)
-
-    localStorage.setItem('user', nameEl)
-    localStorage.setItem('score', finalScore)
-    localStorage.getItem('user', nameEl)
-    localStorage.getItem('score', finalScore)
-
+    localStorage.setItem(user, nameEl)
+    localStorage.setItem(score, finalScore)
     setScoreBoard()
+    endGame()
 })
 
