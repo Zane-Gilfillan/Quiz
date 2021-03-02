@@ -293,12 +293,9 @@ function endGame() {
 
 
 //These are the last two functions i need to set up for local storage to work and keep an up to date leader board
-function setScoreBoard() {
+// function setScoreBoard() {
     
-    
-    
-
-}
+// }
 
 
 subEl.click( () => {
