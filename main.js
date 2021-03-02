@@ -48,11 +48,12 @@ startBtn.click( () => {
         }
 
         if(counter <= 10) {
-            $('.intro').text('hurry up')
+            // $('.intro').text('hurry up')
         }
 
         if(counter <= 0) {
             $('.intro').text('game over')
+            $('.timer-element').text('you did great!')
 
             clearInterval(counter);
 
@@ -286,6 +287,7 @@ function endGame() {
     cEl.text('')
     dEl.text('')
     $('.final-showing').removeClass('hide')
+    questionContainerElement.addClass('hide')
     $('#final-score').text('highscore: ').append(finalScore);
     // $('#final-wrong').text('wrong answers: ').append(wrongAnswers);
 }
