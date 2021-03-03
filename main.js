@@ -256,6 +256,34 @@ function questionSix() {
 
     if(cEl.click( () => [
         finalScore++,
+        questionSeven(),
+        
+    ]));
+    if(aEl.click( () => [
+        wrongAnswers++,
+        questionSeven(),
+        
+    ]));
+    if(bEl.click( () => [
+        wrongAnswers++,
+        questionSeven(),
+        
+    ]));
+    if(dEl.click( () => [
+        wrongAnswers++,
+        questionSeven(),
+    ]));
+}    
+
+function questionSeven() {
+    questionEl.text('in what year was Magic: The Gathering debuted?')
+    aEl.text('1995')
+    bEl.text('1999')
+    cEl.text('1993')
+    dEl.text('1991')
+
+    if(cEl.click( () => [
+        finalScore++,
         endGame(),
         
     ]));
@@ -305,5 +333,4 @@ subEl.click( () => {
     localStorage.setItem(score, finalScore)
     setScoreBoard()
     endGame()
-})
-
+});
